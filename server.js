@@ -21,9 +21,9 @@ app.use(morgan('dev'));
 //routes
 app.use('/api/v1/auth',authRoute);
 
-   app.get('',(req,res)=>{
-        res.send("Everything Is Working fine");
-   });
+app.get('',(req,res)=>{
+    res.send("Everything Is Working fine");
+});
 
 const PORT = process.env.PORT||8080;
 app.listen(PORT,()=>{
