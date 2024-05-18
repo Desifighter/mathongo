@@ -8,4 +8,4 @@ const CustomPropertySchema = new Schema({
 
 export {CustomPropertySchema} // Export the schema directly
 
-export default mongoose.model("Custom",CustomPropertySchema);
+// export default mongoose.model("Custom",CustomPropertySchema);
