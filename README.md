@@ -150,6 +150,59 @@ Authorization = token
       "admin": "66478a24b274072a6bd0b
   ```
 
+## Administrator Routes (continued)
+
+### Upload CSV to Add Users
+
+- **Endpoint:** `/api/v1/admin/upload-csv`
+- **Method:** POST
+- **Payload:**
+  - `listid`: The ID of the list to which users will be added.
+  - `csvfile`: The CSV file containing user data.
+- **Sample Response:**
+  ```json
+  {
+    "success": true,
+    "addedUsersCount": 0,
+    "errorsCount": 3,
+    "errors": [
+      {
+        "user": {
+          "name": "desifighter",
+          "email": "desifighterrr@gmail.com",
+          "city": "mauganj",
+          "zone": ""
+        },
+        "error": "Email already exists"
+      }
+      // Other error details...
+    ]
+  }
+  ```
+
+### Send Email to List Users
+
+- **Endpoint:** `/api/v1/admin/email/:listid`
+- **Method:** POST
+- **Payload:**
+  ```json
+  {
+    "email": "xxxx@gmail.com",
+    "password": "XXXX", // App-specific password for third-party app access
+    "emailcontent": "Hey [name] Thank you for signing up with your email [email]. We have received your city as [city]. Team MathonGo.",
+    "subject": "Test Email Subject"
+  }
+  ```
+- **Sample Response:**
+  ```json
+  {
+    "success": true,
+    "successfullySentEmail": [],
+    "errorEmail": [],
+    "message": "Emails sent successfully"
+  }
+  ```
+
 ## User Routes
 
 ### Unsubscribe User
